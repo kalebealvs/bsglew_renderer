@@ -40,6 +40,7 @@ int main(int, char**) {
     glBindBuffer (GL_ARRAY_BUFFER, buffer_id);
     glBufferData (GL_ARRAY_BUFFER, coords.size () * sizeof (float), coords.data (), GL_STATIC_DRAW);
 
+
     // Must enable vertex group for it to work
     glEnableVertexAttribArray (0);
     // Size in bytes of each vertex inside buffer
@@ -49,6 +50,8 @@ int main(int, char**) {
     // Specify vertex structure
     glVertexAttribPointer (0, data_per_vertex, GL_FLOAT, GL_FALSE, stride, start_pointer);
 
+
+    // Rendering loop
     while (!glfwWindowShouldClose (window)) {
         glClear (GL_COLOR_BUFFER_BIT);
         
