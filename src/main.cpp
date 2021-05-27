@@ -28,16 +28,26 @@ int main(int, char**) {
 
 
     // Create Buffer
-    const std::array<float, 6> coords {
+    constexpr std::array<float, 6> coords {
         -1.f, -1.f,
          1.f, -1.f,
-         0.f, 1.f
+         0.f,  1.f
     };
-    constexpr int vertices = coords.size () / 2;
+    constexpr GLint data_per_vertex = 2;
+    constexpr GLint vertices = coords.size () / data_per_vertex;
     GLuint buffer_id;
     glGenBuffers (1, &buffer_id);
     glBindBuffer (GL_ARRAY_BUFFER, buffer_id);
     glBufferData (GL_ARRAY_BUFFER, coords.size () * sizeof (float), coords.data (), GL_STATIC_DRAW);
+
+    // Must enable vertex group for it to work
+    glEnableVertexAttribArray (0);
+    // Size in bytes of each vertex inside buffer
+    const GLsizei stride = data_per_vertex * sizeof (float);
+    // Pointer for the first data inside vertex
+    const void* start_pointer = 0;
+    // Specify vertex structure
+    glVertexAttribPointer (0, data_per_vertex, GL_FLOAT, GL_FALSE, stride, start_pointer);
 
     while (!glfwWindowShouldClose (window)) {
         glClear (GL_COLOR_BUFFER_BIT);
