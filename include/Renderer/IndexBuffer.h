@@ -7,7 +7,7 @@
 
 class IndexBuffer : public Buffer {
     public:
-        virtual ~IndexBuffer ();
+        virtual ~IndexBuffer () = 0;
 
         /*!
          * @brief Gets index buffer count

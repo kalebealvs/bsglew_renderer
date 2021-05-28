@@ -7,7 +7,7 @@
 
 class VertexBuffer : public Buffer {
     public:
-        virtual ~VertexBuffer ();
+        virtual ~VertexBuffer () = 0;
 
         /*!
          * @brief Creates a vertex buffer using current Rendering API
