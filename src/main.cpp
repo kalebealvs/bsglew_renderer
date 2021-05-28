@@ -2,6 +2,7 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include "Renderer/VertexBuffer.h"
 
 int main(int, char**) {
     if (!glfwInit ())
@@ -29,16 +30,17 @@ int main(int, char**) {
 
     // Create Buffer
     constexpr std::array<float, 6> coords {
-        -1.f, -1.f,
-         1.f, -1.f,
-         0.f,  1.f
+        -.5f, -.5f,
+         .5f, -.5f,
+         .0f,  .5f
     };
     constexpr GLint data_per_vertex = 2;
     constexpr GLint vertices = coords.size () / data_per_vertex;
-    GLuint buffer_id;
-    glGenBuffers (1, &buffer_id);
-    glBindBuffer (GL_ARRAY_BUFFER, buffer_id);
-    glBufferData (GL_ARRAY_BUFFER, coords.size () * sizeof (float), coords.data (), GL_STATIC_DRAW);
+    // GLuint buffer_id;
+    // glGenBuffers (1, &buffer_id);
+    // glBindBuffer (GL_ARRAY_BUFFER, buffer_id);
+    // glBufferData (GL_ARRAY_BUFFER, coords.size () * sizeof (float), coords.data (), GL_STATIC_DRAW);
+    auto buffer = VertexBuffer::Create ((float*)coords.data (), coords.size () * sizeof (float));
 
 
     // Must enable vertex group for it to work
