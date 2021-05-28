@@ -5,10 +5,31 @@
 
 class OpenGLIndexBuffer : public IndexBuffer {
     public:
-        OpenGLIndexBuffer (uint32_t* indices, uint32_t quantity);
+
+        /*!
+         * @brief Creates index buffer using OpenGL
+         *
+         * @param indices Indices used for creating buffer
+         * @param count Number of buffer indices to create  
+         */
+        OpenGLIndexBuffer (uint32_t* indices, uint32_t count);
         virtual ~OpenGLIndexBuffer () override;
+        
+        /*!
+         * @brief Binds OpenGL rendering rendering context to stored buffer id
+         */
         virtual void bind () const override;
+        
+        /*!
+         * @brief Unbinds OpenGL rendering of @b any buffer
+         */
         virtual void unbind () const override;
+        
+        /*!
+         * @brief Gets index buffer count
+         *
+         * @return Index buffer count
+         */
         virtual uint32_t getCount () const override;
 
     private:

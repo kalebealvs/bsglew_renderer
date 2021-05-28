@@ -9,6 +9,11 @@ enum class RendererAPI {
 
 class Renderer {
     public:
+        /*!
+         * @brief Returns current rendering API
+         *
+         * @return Current rendring API
+         */
         static RendererAPI getAPI ();
 
     private:
