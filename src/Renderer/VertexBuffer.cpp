@@ -1,5 +1,6 @@
 #include "Renderer/VertexBuffer.h"
 #include "Renderer/OpenGLVertexBuffer.h"
+#include "Renderer/Renderer.h"
 
 #include <memory>
 #include <iostream>
@@ -7,15 +8,13 @@
 VertexBuffer::~VertexBuffer () {}
 
 std::shared_ptr<VertexBuffer> VertexBuffer::Create (float* vertices, uint32_t size) {
-    enum class GraphicsAPI { None = 0, Vulkan = 1, OpenGL = 2 };
-    const auto graphics_api = GraphicsAPI::OpenGL;
-    switch (graphics_api) {
-        case GraphicsAPI::None:
+    switch (Renderer::getAPI ()) {
+        case RendererAPI::None:
             [[fallthrough]];
-        case GraphicsAPI::Vulkan:
+        case RendererAPI::Vulkan:
             std::cerr << "Not supported yet";
             return nullptr;
-        case GraphicsAPI::OpenGL:
+        case RendererAPI::OpenGL:
             return std::make_shared<OpenGLVertexBuffer> (vertices, size);
     }
 }

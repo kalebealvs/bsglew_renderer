@@ -1,5 +1,6 @@
 #include "Renderer/IndexBuffer.h"
 #include "Renderer/OpenGLIndexBuffer.h"
+#include "Renderer/Renderer.h"
 
 #include <iostream>
 #include <memory>
@@ -7,15 +8,13 @@
 IndexBuffer::~IndexBuffer () {}
 
 std::shared_ptr<IndexBuffer> IndexBuffer::Create (uint32_t* indices, uint32_t size) {
-    enum class GraphicsAPI { None = 0, Vulkan = 1, OpenGL = 2 };// to be in separeted file
-    const auto graphics_api = GraphicsAPI::OpenGL;
-    switch (graphics_api) {
-        case GraphicsAPI::None:
+    switch (Renderer::getAPI ()) {
+        case RendererAPI::None:
             [[fallthrough]];
-        case GraphicsAPI::Vulkan:
+        case RendererAPI::Vulkan:
             std::cerr << "Not supported yet";
             return nullptr;
-        case GraphicsAPI::OpenGL:
+        case RendererAPI::OpenGL:
             return std::make_shared<OpenGLIndexBuffer> (indices, size);
     }
 }
