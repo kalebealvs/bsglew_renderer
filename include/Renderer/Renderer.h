@@ -14,7 +14,7 @@ class Renderer {
          *
          * @return Current rendring API
          */
-        static RendererAPI getAPI ();
+        static auto getAPI () -> RendererAPI;
 
     private:
         static RendererAPI _renderer_api;

@@ -16,7 +16,7 @@ class VertexBuffer : public Buffer {
          * @param size Size in bytes of the whole buffer 
          * @return Created buffer
          */
-        static std::shared_ptr<VertexBuffer> Create (float* vertices, uint32_t size);
+        static auto Create (float* vertices, uint32_t size) -> std::shared_ptr<VertexBuffer>;
 };
 
 #endif

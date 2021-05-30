@@ -8,12 +8,12 @@ class Buffer {
         /*!
          * @brief Binds context to buffer
          */
-        virtual void bind () const = 0;
+        virtual auto bind () const -> void = 0;
 
         /*!
          * @brief Unbinds context to buffer
          */
-        virtual void unbind () const = 0;
+        virtual auto unbind () const -> void = 0;
 };
 
 #endif

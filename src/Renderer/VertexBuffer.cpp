@@ -7,7 +7,7 @@
 
 VertexBuffer::~VertexBuffer () {}
 
-std::shared_ptr<VertexBuffer> VertexBuffer::Create (float* vertices, uint32_t size) {
+auto VertexBuffer::Create (float* vertices, uint32_t size) -> std::shared_ptr<VertexBuffer> {
     switch (Renderer::getAPI ()) {
         case RendererAPI::None:
             [[fallthrough]];

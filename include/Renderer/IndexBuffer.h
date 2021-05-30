@@ -14,7 +14,7 @@ class IndexBuffer : public Buffer {
          *
          * @return Index buffer count
          */
-        virtual uint32_t getCount () const = 0;
+        virtual auto getCount () const -> uint32_t = 0;
 
         /*!
          * @brief Creates an index buffer using current Rendering API
@@ -23,7 +23,7 @@ class IndexBuffer : public Buffer {
          * @param count Number of buffer indices to be created 
          * @return Created buffer
          */
-        static std::shared_ptr<IndexBuffer> Create (uint32_t* indices, uint32_t count);
+        static auto Create (uint32_t* indices, uint32_t count) -> std::shared_ptr<IndexBuffer>;
 };
 
 #endif

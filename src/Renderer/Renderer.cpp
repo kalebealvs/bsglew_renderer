@@ -2,6 +2,6 @@
 
 RendererAPI Renderer::_renderer_api = RendererAPI::OpenGL;
 
-RendererAPI Renderer::getAPI () {
+auto Renderer::getAPI () -> RendererAPI {
     return _renderer_api;
 }

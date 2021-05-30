@@ -7,18 +7,18 @@ OpenGLIndexBuffer::OpenGLIndexBuffer (uint32_t* indices, uint32_t count) : _coun
     glBufferData (GL_ELEMENT_ARRAY_BUFFER, count * sizeof (uint32_t), indices, GL_STATIC_DRAW);
 }
 
-OpenGLIndexBuffer::~OpenGLIndexBuffer  () {
+OpenGLIndexBuffer::~OpenGLIndexBuffer () {
     glDeleteBuffers (1, &_buffer_id);
 }
 
-void OpenGLIndexBuffer::bind () const {
+auto OpenGLIndexBuffer::bind () const -> void {
     glBindBuffer (GL_ELEMENT_ARRAY_BUFFER, _buffer_id);
 }
 
-void OpenGLIndexBuffer::unbind () const {
+auto OpenGLIndexBuffer::unbind () const -> void {
     glBindBuffer (GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
-uint32_t OpenGLIndexBuffer::getCount () const {
+auto OpenGLIndexBuffer::getCount () const -> uint32_t {
     return _count;
 }

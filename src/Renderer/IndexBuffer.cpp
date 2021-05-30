@@ -7,7 +7,7 @@
 
 IndexBuffer::~IndexBuffer () {}
 
-std::shared_ptr<IndexBuffer> IndexBuffer::Create (uint32_t* indices, uint32_t size) {
+auto IndexBuffer::Create (uint32_t* indices, uint32_t size) -> std::shared_ptr<IndexBuffer> {
     switch (Renderer::getAPI ()) {
         case RendererAPI::None:
             [[fallthrough]];

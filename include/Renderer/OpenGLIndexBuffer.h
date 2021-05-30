@@ -18,19 +18,19 @@ class OpenGLIndexBuffer : public IndexBuffer {
         /*!
          * @brief Binds OpenGL rendering rendering context to stored buffer id
          */
-        virtual void bind () const override;
+        virtual auto bind () const -> void override;
         
         /*!
          * @brief Unbinds OpenGL rendering of @b any buffer
          */
-        virtual void unbind () const override;
+        virtual auto unbind () const -> void override;
         
         /*!
          * @brief Gets index buffer count
          *
          * @return Index buffer count
          */
-        virtual uint32_t getCount () const override;
+        virtual auto getCount () const -> uint32_t override;
 
     private:
         uint32_t _buffer_id;

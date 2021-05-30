@@ -7,14 +7,14 @@ OpenGLVertexBuffer::OpenGLVertexBuffer (float* vertices, uint32_t size) {
     glBufferData (GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
 }
 
-OpenGLVertexBuffer::~OpenGLVertexBuffer  () {
+OpenGLVertexBuffer::~OpenGLVertexBuffer () {
     glDeleteBuffers (1, &_buffer_id);
 }
 
-void OpenGLVertexBuffer::bind () const {
+auto OpenGLVertexBuffer::bind () const -> void {
     glBindBuffer (GL_ARRAY_BUFFER, _buffer_id);
 }
 
-void OpenGLVertexBuffer::unbind () const {
+auto OpenGLVertexBuffer::unbind () const -> void {
     glBindBuffer (GL_ARRAY_BUFFER, 0);
 }
