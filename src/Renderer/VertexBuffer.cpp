@@ -5,7 +5,7 @@
 #include <memory>
 #include <iostream>
 
-VertexBuffer::~VertexBuffer () {}
+VertexBuffer::~VertexBuffer () = default;
 
 auto VertexBuffer::Create (float* vertices, uint32_t size) -> std::shared_ptr<VertexBuffer> {
     switch (Renderer::getAPI ()) {

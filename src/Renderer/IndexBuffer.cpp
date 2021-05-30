@@ -5,7 +5,7 @@
 #include <iostream>
 #include <memory>
 
-IndexBuffer::~IndexBuffer () {}
+IndexBuffer::~IndexBuffer () = default;
 
 auto IndexBuffer::Create (uint32_t* indices, uint32_t size) -> std::shared_ptr<IndexBuffer> {
     switch (Renderer::getAPI ()) {
