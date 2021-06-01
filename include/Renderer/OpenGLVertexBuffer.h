@@ -20,12 +20,12 @@ class OpenGLVertexBuffer : public VertexBuffer {
         /*!
          * @brief Binds OpenGL rendering context to stored buffer id
          */
-        virtual auto bind () const -> void override;
+        auto bind () const -> void override;
         
         /*!
          * @brief Unbinds OpenGL rendering context of @b any buffer
          */
-        virtual auto unbind () const -> void override;
+        auto unbind () const -> void override;
     
     private:
         uint32_t _buffer_id;

@@ -13,24 +13,24 @@ class OpenGLIndexBuffer : public IndexBuffer {
          * @param count Number of buffer indices to create  
          */
         OpenGLIndexBuffer (uint32_t* indices, uint32_t count);
-        virtual ~OpenGLIndexBuffer () override;
+        virtual ~OpenGLIndexBuffer ();
         
         /*!
          * @brief Binds OpenGL rendering rendering context to stored buffer id
          */
-        virtual auto bind () const -> void override;
+        auto bind () const -> void override;
         
         /*!
          * @brief Unbinds OpenGL rendering of @b any buffer
          */
-        virtual auto unbind () const -> void override;
+        auto unbind () const -> void override;
         
         /*!
          * @brief Gets index buffer count
          *
          * @return Index buffer count
          */
-        virtual auto getCount () const -> uint32_t override;
+        auto getCount () const -> uint32_t override;
 
     private:
         uint32_t _buffer_id;
