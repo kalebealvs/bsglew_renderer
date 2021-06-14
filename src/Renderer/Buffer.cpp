@@ -1,3 +1,3 @@
 #include "Renderer/Buffer.h"
 
-Buffer::~Buffer () = default;
+Buffer::~Buffer() = default;
